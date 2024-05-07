@@ -93,3 +93,35 @@ sudo apt-get -y install cuda
 ```
 
 Needs to be tested if there will be any issues related to 20.04 -> 22.04 Ubuntu version changes.
+
+
+# Supported GCC versions
+taken from [here](https://stackoverflow.com/questions/6622454/cuda-incompatible-with-my-gcc-version)
+
+
+|CUDA version    | max supported GCC version |
+|----------------|--------------------------:|
+|12.4            | 13.2                      |
+12.1, 12.2, 12.3 | 12.2
+12               | 12.1
+11.4.1+, 11.5, 11.6, 11.7, 11.8 | 11
+11.1, 11.2, 11.3, 11.4.0        | 10
+11               |  9
+10.1, 10.2       |  8
+9.2, 10.0        |  7
+9.0, 9.1         |  6
+8                |  5.3
+7                |  4.9
+5.5, 6           |  4.8
+4.2, 5           |  4.6
+4.1              |  4.5
+4.0              |  4.4
+
+
+Another great gist on CUDA [here](https://gist.github.com/ax3l/9489132)
+
+>CUDA 12.4: Starting in CUDA 12.4, the NVIDIA driver installation on Linux will be opt-in. The goal is to improve user experience for a wide range of use cases such as installing the open module flavor driver. The cuda-runtime dependency and therefore the cuda-drivers (NVIDIA driver) dependency will be removed from the top-level cuda meta-package. Effectively, the cuda and cuda-toolkit meta-packages will be equivalent in CUDA 12.4.
+
+Clang could be used directly to compile CUDA, no nvcc needed: https://llvm.org/docs/CompileCudaWithLLVM.html
+
+https://gist.github.com/ax3l/9489132#clang--x-cuda
